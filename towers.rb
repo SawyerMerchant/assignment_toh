@@ -28,8 +28,9 @@ def render
 
   rows.times do |row|
     3.times do |column|
-      @display_towers[column][row].times {print "o"} unless @display_towers[column].nil? || @display_towers[column][row].nil?
-      print "".ljust(@number_of_disks + 1)
+      to_print = ""
+      @display_towers[column][row].times {to_print += "o"} unless @display_towers[column].nil? || @display_towers[column][row].nil?
+      print to_print.ljust(@number_of_disks + 2)
     end
     puts ""
   end
