@@ -10,24 +10,24 @@ def TowerOfHanoi(number_of_disks)
     end
     rows = heights.max
 
-    @display_towers = [[],[],[]]
+    display_towers = [[],[],[]]
     3.times do |i|
       if towers[i].length == rows
-        @display_towers[i] = towers[i].dup.reverse
+        display_towers[i] = towers[i].dup.reverse
       else
         to_add = rows - towers[i].length
-        @display_towers[i] = towers[i].dup
+        display_towers[i] = towers[i].dup
         to_add.times do
-          @display_towers[i] << 0
+          display_towers[i] << 0
         end
-        @display_towers[i].reverse!
+        display_towers[i].reverse!
       end
     end
 
     rows.times do |row|
       3.times do |column|
         to_print = ""
-        @display_towers[column][row].times {to_print += "o"} unless @display_towers[column].nil? || @display_towers[column][row].nil?
+        display_towers[column][row].times {to_print += "o"} unless display_towers[column].nil? || display_towers[column][row].nil?
         print to_print.ljust(@number_of_disks + 2)
       end
       puts ""
